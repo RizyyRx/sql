@@ -1,0 +1,36 @@
+Normalization: reduces redundancies, optimize queries, simplify data maintenance
+
+Types:
+    1. Unnormalized Form (UNF):
+        Data is in raw state, without any Normalization applied
+        contains repetiting groups or arrays
+        Exa: In customers table, where single customer has multiple phone numbers and addresses in the same row
+
+    2. First Normal Form (1NF):
+        To eliminate repetiting groups, ensuring atomicity
+        Each row should only contain indivisible values (atomic values - no arrays, sets, multi valued attributes)
+        Exa: phone numbers are divided, only one number per row
+        what's happening here: many phone no are in same row for a customer
+    
+    2. Second Normal Form (2NF):
+        Goal: Eliminate partial dependency.
+        Rules: Must be in 1NF, every non-key column must depend on the entire primary key (not just part of it)
+        Exa: If the table has a composite key (StudentID, CourseID), and Name only depends on StudentID
+        in this case, course id will be moved to next row as per 1NF and we dont want that
+        so we are splitting the table into Student table(has st id and name) and enrollments table (has s id, course id, grade)
+        what's happening here: a column is not dependent on pk, its just there
+
+
+    3. Third Normal Form (3NF):
+        Goal: Eliminate transitive dependency.
+        Rules: Must be in 2NF,
+        Non-key columns should not depend on other non-key columns.
+        Every non-primary key column in a table should only be directly dependent on the primary key, not on another non-key column.
+        Exa: If DepartmentName depends on DepartmentID, and DepartmentID depends on StudentID,
+        here only student id is primary key, D name and D id are non primary key
+        so we are spilitting the table where one has student as primary key and another as D id as pk
+        what's happening here: two columns which are not pk are dependent on each other
+
+
+    
+
