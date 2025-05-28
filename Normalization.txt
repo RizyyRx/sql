@@ -31,6 +31,54 @@ Types:
         so we are spilitting the table where one has student as primary key and another as D id as pk
         what's happening here: two columns which are not pk are dependent on each other
 
+Candidate key:
+    Candidate Key is a set of one or more attributes, by using that, we can derive all other attributes
+    There can be multiple Candidate keys in an Functional dependency (FD)
+    A Candidate key must be minimal (i.e if we remove an attribute from a ck, we cannot derive all other attributes)
+
+    Exa: Functional Dependencies (FDs):
+        B→A
+        A→C
+        BC→D
+        AC→BE
+
+        Here, BC and AC are Candidate keys, if we took C from BC, it cannot derive all other attributes
+        same for AC....
+
+        another exa:
+        Functional Dependencies (FDs):
+        A→B
+        B→C
+
+        Consider key: AB
+        Let's test its closure:
+        A→B → already have B
+        B→C → get C
+        (AB)={A,B,C} → it determines all attributes
+
+        Now test for minimality:
+        Try just A:
+        A→B, 
+        B→C → so A alone gets everything
+        So AB is NOT minimal — A is enough.
+
+        So A is the minimal key
+        AB is not minimal because it contains unnecessary attribute B
+
+Super Key:
+    Similar to Candidate key, but it doesnt have to be minimal
+    From prev exa, AB was not minimal, so it cannot be a Candidate key, but its a Super key. (doesnt hav to be minimal)
+
+Deriving primary keys from Candidate keys:
+    All attributes included in Candidate keys are primary keys
+    In prev 
+
+composite determinant:
+    If A and B together determine C, it means the functional dependency is: (A, B) → C
+    This means the combination of A and B (together) determines C, not necessarily A alone or B alone.
+    So, (A, B) is a composite determinant (a determinant made up of more than one attribute).
+    From this, you cannot conclude that A → C or B → C individually.
+    Also, C is not a determinant here; it is the dependent attribute.
 
     
 
