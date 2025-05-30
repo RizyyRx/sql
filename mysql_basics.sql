@@ -51,6 +51,11 @@ ALTER COLUMN cgpa DROP DEFAULT;
 ALTER TABLE student
 ADD PRIMARY KEY (roll_no);
 
+--To remove a primary key constraint from a column, 
+-- you need to drop the primary key constraint, not just modify the column
+ALTER TABLE table_name DROP PRIMARY KEY;
+
+
 -- Rename table
 RENAME TABLE student TO students;
 
